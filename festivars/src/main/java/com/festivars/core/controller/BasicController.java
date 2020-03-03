@@ -48,7 +48,10 @@ public class BasicController {
 	}
 	
 	@GetMapping("addFestival")
-	public String addFestival() {
+	public String addFestival(Model model) {
+		List<Artist> artistsList;
+		artistsList = ajr.getAll();
+		model.addAttribute("artists", artistsList);
 		return "addFestival";
 	}
 	

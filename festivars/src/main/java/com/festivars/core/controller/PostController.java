@@ -1,5 +1,4 @@
 package com.festivars.core.controller;
-
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +31,12 @@ public class PostController {
 	
 
 	@PostMapping("addFestival")
-	public String addFestival(@RequestParam("name") String name, @RequestParam("description") String description, @RequestParam("allowed_age") int allowed_age, @RequestParam("capacity") int capacity, @RequestParam("date") Date date, @RequestParam("photo") String photo) {
+	public String addFestival(@RequestParam("name") String name, @RequestParam("description") String description, @RequestParam("allowed_age") int allowed_age, @RequestParam("capacity") int capacity, @RequestParam("date") Date date, @RequestParam("photo") String photo, @RequestParam("artists[]") int[] id_artists) {
 		Festival f = new Festival(name, description, capacity, allowed_age, date, photo);
+		for (int id : id_artists) {
+			Artist artist = ajr.findById(id);
+			f.addArtist(artist);
+		}
 		fjr.addFestival(f);
 		return "redirect:/catalog";
 	}
