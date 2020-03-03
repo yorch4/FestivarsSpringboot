@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}"
+	href="../static/css/bootstrap.css">
+<link rel="stylesheet"
+	href="//use.fontawesome.com/releases/v5.3.1/css/all.css">
+<link
+	href="//db.onlinewebfonts.com/c/23c0fcab84d99da0de762de7e220a6e1?family=Europa"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"
+	href="../static/css/index.css" />
+
+<title>Detalles | Festivars</title>
+</head>
+<body class="text-uppercase">
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarTogglerDemo03"
+				aria-controls="navbarTogglerDemo03" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" th:href=@{/catalog} href=""> <img
+				th:src="@{/img/Logo.PNG}" src="../static/img/Logo.PNG" alt="Logo"
+				style="width: 40px;">
+			</a>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item"><a class="ml-3" th:href="@{/catalog}"
+						href="">FESTIVARS</a> <a class="ml-3"
+						th:href="@{/catalog/artists}" href="">ARTISTAS</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- FESTIVALES -->
+		<section id="festivals">
+			<div class="card mx-auto my-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <img th:src="${festival.photo}" class="img-circle img-thumbnail">
+                    </div></hr><br>
+                </div>
+                <div class="col-sm-9 text-left" style="color: black;">
+                    <div class="tab-content">
+                        <hr>
+                        <h3 class="text-title" th:text="${festival.name}"></h3>
+                        <p th:text="${festival.description}"></p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled" style="color: black !important;">
+                                    <li><i class="fa fa-users mr-2 text-title"></i><span th:text="${festival.capacity}"></span></li>
+                                    <li><i class="fa fa-calendar mr-2 text-title"></i><span th:text="${festival.date}"></span></li>
+                                    <li><i class="fa fa-ban mr-2 text-title"></i><span th:text="${festival.allowed_age}"></span></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 text-right mt-4">
+                                <a href="/catalog" class="btn btn-dark">Volver</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		</section>
+	</div>
+	<script th:script="@{js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+</body>
+</html>
